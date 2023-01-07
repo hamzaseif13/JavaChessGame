@@ -91,6 +91,7 @@ public class ClassicRules implements GameRules {
                 Piece sourcePiece = chessBoardCopy.get(fromPosition);
                 chessBoardCopy.put(toPosition, sourcePiece);
                 chessBoardCopy.put(fromPosition, null);
+                gameOutput.printBoard(chessBoardCopy);
                 if (!isChecked(kingPosition, turn, chessBoardCopy)) {
                     return false;
                 }
@@ -119,7 +120,7 @@ public class ClassicRules implements GameRules {
         return copy;
     }
 
-    private boolean isChecked(Position kingPosition, Color turn, Map<Position, Piece> chessBoard) {
+    private boolean isChecked(Position kingPosition, Color turn, Map<Position,Piece> chessBoard) {
         for (Map.Entry<Position, Piece> set : chessBoard.entrySet()) {
             if (set.getValue() != null && set.getValue().getColor() != turn) {
                 Move move = new Move(set.getKey(), kingPosition);

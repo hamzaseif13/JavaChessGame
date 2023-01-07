@@ -24,12 +24,12 @@ public class Queen extends Piece {
     private boolean isPathClear(Move move, Map<Position, Piece> chessBoard) {
 
         if (move.fromX() == move.toX() || move.toY() == move.fromY()) {
-           EmptyPathValidator.horizontalAndVerticalValidator(move, chessBoard);
+           return EmptyPathValidator.horizontalAndVerticalValidator(move, chessBoard);
         }
         else {
-          EmptyPathValidator.validateDiagonal(move, chessBoard);
+          return EmptyPathValidator.validateDiagonal(move, chessBoard);
         }
-        return true;
+
     }
 
 
